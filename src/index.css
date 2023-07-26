@@ -1,5 +1,19 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --mainBgColor: #f6f7fb;
+  --secondaryBgColor: #fff;
+  --secondaryAccentColor: #b1b5c2;
+  --mainAccentColor: #ff6b08;
+  --mainTextColor: #242a37;
+  --secondaryTextColor: #898f9f;
+  --placeholderColor: #a6abb9;
+  --whiteColorText: #fff;
+  --boxShadowInput: 0px 1px 2px 0px rgba(29, 29, 27, 0.15) inset;
+  --boxShadowItem: 0px 2px 3px 0px rgba(9, 30, 63, 0.1);
+  --boxShadowModal: 10px 10px 20px 0px rgba(9, 30, 63, 0.2);
+
+  --fontSizeMobile: 12px;
+  --fontSizeTablet: 14px;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,11 +38,19 @@ a:hover {
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  font-size: var(--fontSizeMobile);
+  font-weight: 500;
+  background-color: var(--mainBgColor);
+}
+@media screen and(min-width: 768px) {
+  body {
+    font-size: var(--fontSizeTablet);
+  }
 }
 
 h1 {
