@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/AnastasiiaHudymenko/book-app",
+  "name": "book-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
