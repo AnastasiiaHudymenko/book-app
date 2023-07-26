@@ -6,11 +6,12 @@ import TrendingPage from "../pages/TraindingPage/TrandingPage";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/library" element={<LibraryPage />} />
-      <Route path="/tranding" element={<TrendingPage />} />
-    </Routes>
+    <AuthPage />
+    // <Routes>
+    //   <Route path="/" element={<AuthPage />} />
+    //   <Route path="/library" element={<LibraryPage />} />
+    //   <Route path="/tranding" element={<TrendingPage />} />
+    // </Routes>
   );
 };
 
