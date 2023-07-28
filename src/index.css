@@ -3,6 +3,7 @@
   --secondaryBgColor: #fff;
   --secondaryAccentColor: #b1b5c2;
   --mainAccentColor: #ff6b08;
+  --hoverAccentColor: #9b4c17;
   --mainTextColor: #242a37;
   --secondaryTextColor: #898f9f;
   --placeholderColor: #a6abb9;
@@ -29,12 +30,9 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  font-weight: 700;
+  color: var(--mainAccentColor);
+  text-decoration: underline;
 }
 
 body {
@@ -69,9 +67,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

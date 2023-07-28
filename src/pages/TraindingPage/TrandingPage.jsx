@@ -1,5 +1,5 @@
-const TrendingPage = () => {
+const TraindingPage = () => {
   return <div>Hello Trending</div>;
 };
 
-export default TrendingPage;
+export default TraindingPage;

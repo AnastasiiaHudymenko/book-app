@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App";
+import App from "./components/App/App";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import LibraryPage from "./pages/LibraryPage/LibraryPage";
 import { HashRouter } from "react-router-dom";
 
 import "./index.css";
