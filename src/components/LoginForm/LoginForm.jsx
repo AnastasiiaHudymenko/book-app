@@ -23,7 +23,7 @@ const LoginForm = () => {
     <Conatiner>
       <WrapFormComponent>
         <Formik initialValues={{ email: "", password: "" }}>
-          <StyledForm autoComplete="off">
+          <StyledForm path={pathname} autoComplete="off">
             <BtnGoogle />
             <StyledLabel>
               <TitleLabel>

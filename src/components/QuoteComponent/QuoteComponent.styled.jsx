@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  @media screen and (min-width: 1280px) {
+    flex-basis: 53%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  }
+`;
+
 export const Quote = styled.p`
   margin-top: -35px;
   font-size: ${(props) => (props.isMainPage ? "10px" : "13px")}; 
@@ -14,11 +25,9 @@ export const Quote = styled.p`
     width: ${(props) => (props.isMainPage ? "" : "526px")};
     margin: ${(props) => (props.isMainPage ? "" : "auto")}; 
    }
-
-   
-
-  @media screen and (min-width: 1280px) {
+   @media screen and (min-width: 1280px) {
     font-size: 18px;
+    margin: 0;
    }
 }
 `;
@@ -53,6 +62,7 @@ export const TitleAuhtor = styled.p`
 `;
 
 export const Decoration = styled.span`
+  margin-bottom: -34px;
   color: var(--mainAccentColor);
   text-align: center;
   font-family: Abril Fatface;

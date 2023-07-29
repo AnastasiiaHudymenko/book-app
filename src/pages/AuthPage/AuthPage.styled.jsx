@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   text-align: center;
-  height: 95vh;
+  height: 100vh;
   background-color: var(--mainBgColor);
   @media screen and (min-width: 768px) {
     display: flex;

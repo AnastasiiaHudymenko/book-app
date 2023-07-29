@@ -10,11 +10,11 @@ import {
   TitleLabel,
   Decoration,
 } from "../LoginForm/Login.styled";
-import { StyledLink, StyledSpan } from "./RegisterForm.styled";
+import { StyledLink, StyledSpan, Container } from "./RegisterForm.styled";
 
 const RegisterForm = () => {
   return (
-    <>
+    <Container>
       <WrapFormComponent>
         <Formik
           initialValues={{ name: "", email: "", password: "", confirm: "" }}
@@ -66,7 +66,7 @@ const RegisterForm = () => {
         </Formik>
       </WrapFormComponent>
       <Information />
-    </>
+    </Container>
   );
 };
 

@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 
 export const Conatiner = styled.div`
   background-color: var(--mainBgColor);
-  height: 95vh;
+  height: 100vh;
   text-align: center;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
 `;
 
 export const StyledForm = styled(Form)`
@@ -20,6 +24,10 @@ export const StyledForm = styled(Form)`
     max-width: 400px;
     margin: 0 auto;
     padding: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: ${(prop) => (prop.path === "/login" ? "106px" : "0")};
   }
 `;
 
