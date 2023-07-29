@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
-import bcgMobile from "../../images/bcgMobile.jpg";
-import bcgTablet from "../../images/bcgTablet.jpg";
+import { Form, Field } from "formik";
+import { Link } from "react-router-dom";
 
 export const Conatiner = styled.div`
   background-color: var(--secondaryBgColor);
@@ -9,53 +8,45 @@ export const Conatiner = styled.div`
   text-align: center;
 `;
 
-export const WrapForm = styled.div`
-  padding: 32px 0;
-  background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
-    url(${bcgMobile});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-`;
-
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: flex-start;
+  padding: 0 20px;
 `;
 
-export const BtnGoogle = styled.button`
+export const StyledLabel = styled.label`
+  width: 98%;
+`;
+
+export const StyledField = styled(Field)`
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding-left: 14px;
-  padding-right: 36px;
-  color: #707375;
-  margin: 0 auto;
-  margin-bottom: 28px;
-  font-size: 16px;
-
-  font-weight: 700;
-  line-height: 38px; /* 237.5% */
-
+  width: 98%;
+  min-height: 42px;
+  padding-left: 8px;
   background: #f5f7fa;
-  box-shadow: 0px 2px 2px 0px rgba(9, 30, 63, 0.15);
+  box-shadow: var(--boxShadowInput);
 `;
 
 export const TitleLabel = styled.p`
-  color: #fff;
-  font-family: Montserrat;
+  color: var(--whiteColorText);
+  text-align: left;
   font-size: 14px;
-
+  margin: 0;
+  margin-bottom: 8px;
   font-weight: 600;
 `;
 
 export const Decoration = styled.span`
   color: #f25137;
-  font-family: Montserrat;
   font-size: 14px;
-
   font-weight: 600;
+`;
+
+export const StyledLink = styled(Link)`
+  margin: 0 auto;
+  color: var(--mainAccentColor);
+  font-size: 13px;
+  font-weight: 500;
 `;

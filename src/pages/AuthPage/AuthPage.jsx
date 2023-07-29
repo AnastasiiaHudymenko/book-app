@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import {
   quoteWelcomePage,
   authorWelcomePage,
@@ -18,7 +19,7 @@ import {
 
 const AuthPage = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
-
+  const { pathname } = useLocation();
   return (
     <Container>
       <BcgFon>
@@ -54,6 +55,7 @@ const AuthPage = () => {
         >
           <div style={{ display: isTablet ? "block" : "none" }}>
             <QuoteComponent
+              path={pathname}
               desc={quoteWelcomePage}
               author={authorWelcomePage}
             />

@@ -1,46 +1,63 @@
-import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+import { Formik } from "formik";
 import { FcGoogle } from "react-icons/fc";
+import { useLocation } from "react-router-dom";
 import { quoteLoginPage, authorLoginPage } from "../../components/data/data";
 import QuoteComponent from "../QuoteComponent/QuoteComponent";
+import BtnForm from "../BtnForm/BtnForm";
+import WrapFormComponent from "../WrapFormComponent/WrapFormComponent";
+import BtnGoogle from "../BtnGoogle/BtnGoogle";
+
 import {
   Conatiner,
-  WrapForm,
-  BtnGoogle,
   TitleLabel,
   Decoration,
   StyledForm,
+  StyledLabel,
+  StyledField,
+  StyledLink,
 } from "./Login.styled";
 
 const LoginForm = () => {
+  const { pathname } = useLocation();
+
   return (
     <Conatiner>
-      <WrapForm>
+      <WrapFormComponent>
         <Formik initialValues={{ email: "", password: "" }}>
           <StyledForm autoComplete="off">
-            <BtnGoogle type="button">
-              <FcGoogle size={18} />
-              Google
-            </BtnGoogle>
-            <label>
+            <BtnGoogle />
+            <StyledLabel>
               <TitleLabel>
                 Електронна адреса <Decoration>*</Decoration>
               </TitleLabel>
-              <Field placeholder="your@email.com" type="email" name="email" />
-            </label>
-            <label>
+              <StyledField
+                placeholder="your@email.com"
+                type="email"
+                name="email"
+              />
+            </StyledLabel>
+            <StyledLabel>
               <TitleLabel>
                 Пароль <Decoration>*</Decoration>
               </TitleLabel>
-              <Field placeholder="Пароль" type="password" name="password" />
-            </label>
-            <button type="submit">Увійти</button>
-            <Link to="/register">Реєстрація</Link>
+              <StyledField
+                placeholder="Пароль"
+                type="password"
+                name="password"
+              />
+            </StyledLabel>
+            <BtnForm type="submit" text="Увійти" />
+
+            <StyledLink to="/register">Реєстрація</StyledLink>
           </StyledForm>
         </Formik>
-      </WrapForm>
+      </WrapFormComponent>
 
-      <QuoteComponent author={authorLoginPage} desc={quoteLoginPage} />
+      <QuoteComponent
+        path={pathname}
+        author={authorLoginPage}
+        desc={quoteLoginPage}
+      />
     </Conatiner>
   );
 };

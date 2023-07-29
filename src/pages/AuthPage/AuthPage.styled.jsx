@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   text-align: center;
   height: 95vh;
-  background-color: var(--secondaryBgColor);
+  background-color: var(--mainBgColor);
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -36,7 +36,7 @@ export const WrapNav = styled.div`
     flex-direction: column;
     justify-content: center;
     flex-basis: 40%;
-    background-color: var(--secondaryBgColor);
+    background-color: var(--mainBgColor);
   }
   @media screen and (min-width: 1280px) {
     padding: 0 40px;

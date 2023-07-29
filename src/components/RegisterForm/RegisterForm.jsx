@@ -1,51 +1,64 @@
-import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+import { Formik } from "formik";
+import WrapFormComponent from "../WrapFormComponent/WrapFormComponent";
+import BtnForm from "../BtnForm/BtnForm";
+import BtnGoogle from "../BtnGoogle/BtnGoogle";
+import {
+  StyledForm,
+  StyledLabel,
+  StyledField,
+  TitleLabel,
+  Decoration,
+} from "../LoginForm/Login.styled";
+import { StyledLink, StyledSpan } from "./RegisterForm.styled";
 
 const RegisterForm = () => {
   return (
-    <div>
+    <WrapFormComponent>
       <Formik
         initialValues={{ name: "", email: "", password: "", confirm: "" }}
       >
-        <Form autoComplete="off">
-          <button type="button">Google</button>
-          <label>
-            <p>
-              Ім'я <span>*</span>
-            </p>
-            <Field placeholder="Ваше ім'я" type="text" name="name" />
-          </label>
-          <label>
-            <p>
-              Електронна адреса <span>*</span>
-            </p>
-            <Field placeholder="your@email.com" type="email" name="email" />
-          </label>
-          <label>
-            <p>
-              Пароль <span>*</span>
-            </p>
-            <Field placeholder="Пароль" type="password" name="password" />
-          </label>
-          <label>
-            <p>
-              Підтвердити пароль <span>*</span>
-            </p>
-            <Field
+        <StyledForm autoComplete="off">
+          <BtnGoogle />
+          <StyledLabel>
+            <TitleLabel>
+              Ім'я <Decoration>*</Decoration>
+            </TitleLabel>
+            <StyledField placeholder="Ваше ім'я" type="text" name="name" />
+          </StyledLabel>
+          <StyledLabel>
+            <TitleLabel>
+              Електронна адреса <Decoration>*</Decoration>
+            </TitleLabel>
+            <StyledField
+              placeholder="your@email.com"
+              type="email"
+              name="email"
+            />
+          </StyledLabel>
+          <StyledLabel>
+            <TitleLabel>
+              Пароль <Decoration>*</Decoration>
+            </TitleLabel>
+            <StyledField placeholder="Пароль" type="password" name="password" />
+          </StyledLabel>
+          <StyledLabel>
+            <TitleLabel>
+              Підтвердити пароль <Decoration>*</Decoration>
+            </TitleLabel>
+            <StyledField
               placeholder="Підтвердити пароль"
               type="password"
               name="confirm"
             />
-          </label>
-          <button type="submit">Зареєструватися</button>
-          <Link to="/login">
-            <p>
-              Вже з нами?<span> Увійти</span>
-            </p>
-          </Link>
-        </Form>
+          </StyledLabel>
+          <BtnForm type="submit" text="Зареєструватися" />
+
+          <StyledLink to="/login">
+            Вже з нами?<StyledSpan> Увійти</StyledSpan>
+          </StyledLink>
+        </StyledForm>
       </Formik>
-    </div>
+    </WrapFormComponent>
   );
 };
 

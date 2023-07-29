@@ -1,12 +1,15 @@
 import { Decoration, Quote, TitleAuhtor } from "./QuoteComponent.styled";
 
-const QuoteComponent = ({ desc, author }) => {
+const QuoteComponent = ({ desc, author, path }) => {
+  const isMainPage = path === "/";
+  console.log(isMainPage);
+
   return (
     <>
       <Decoration>“</Decoration>
-      <Quote>{desc}</Quote>
-      <div style={{ position: "relative", marginTop: "44px" }}>
-        <TitleAuhtor>{author}</TitleAuhtor>
+      <Quote isMainPage={isMainPage}>{desc}</Quote>
+      <div>
+        <TitleAuhtor isMainPage={isMainPage}>{author}</TitleAuhtor>
       </div>
     </>
   );

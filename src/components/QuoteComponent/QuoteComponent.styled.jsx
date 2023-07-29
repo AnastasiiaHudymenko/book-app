@@ -2,22 +2,26 @@ import styled from "styled-components";
 
 export const Quote = styled.p`
   margin-top: -35px;
-  font-size: 10px;
+  font-size: ${(props) => (props.isMainPage ? "10px" : "13px")}; 
   line-height: 1.8;
-  text-align: left;
+  text-align: ${(props) => (props.isMainPage ? "left" : "center")}; 
   padding: 0 22px;
-  color: var(--secondaryTextColor);
+  color: ${(props) =>
+    props.isMainPage ? "var(--secondaryTextColor)" : "var(--mainTextColor)"} ;
+    
+  @media screen and (min-width: 768px) {
+    font-size: ${(props) => (props.isMainPage ? "12px" : "13px")};
+   }
+
   @media screen and (min-width: 1280px) {
     font-size: 18px;
-   
-  }
-
-  
+   }
 }
 `;
 
 export const TitleAuhtor = styled.p`
   color: var(--secondaryTextColor);
+  position: relative;
 
   ::before {
     content: "";
@@ -27,8 +31,8 @@ export const TitleAuhtor = styled.p`
     transform: translateX(-50%);
     width: 150px;
     height: 1px;
-    bottom: 36px;
-    @media screen and (min-width: 1280px) {
+    top: -6px;
+    @media screen and (min-width: 768px) {
       width: 200px;
     }
   }
@@ -39,11 +43,9 @@ export const TitleAuhtor = styled.p`
 `;
 
 export const Decoration = styled.span`
-  color: #ff6b08;
+  color: var(--mainAccentColor);
   text-align: center;
   font-family: Abril Fatface;
   font-size: 69px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 `;
