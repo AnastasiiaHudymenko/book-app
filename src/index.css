@@ -39,7 +39,7 @@ body {
 
   font-size: var(--fontSizeMobile);
   font-weight: 500;
-  background-color: var(--mainBgColor);
+  background-color: var(--secondaryBgColor);
 }
 @media screen and(min-width: 768px) {
   body {
