@@ -1,5 +1,4 @@
 import { Formik } from "formik";
-import { FcGoogle } from "react-icons/fc";
 import { useLocation } from "react-router-dom";
 import { quoteLoginPage, authorLoginPage } from "../../components/data/data";
 import QuoteComponent from "../QuoteComponent/QuoteComponent";

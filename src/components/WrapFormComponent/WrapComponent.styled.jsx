@@ -16,5 +16,6 @@ export const WrapForm = styled.div`
         rgba(9, 30, 63, 0.8)
       ),
       url(${bcgTablet});
+    padding: 64px 0;
   }
 `;

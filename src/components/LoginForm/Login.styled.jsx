@@ -3,7 +3,7 @@ import { Form, Field } from "formik";
 import { Link } from "react-router-dom";
 
 export const Conatiner = styled.div`
-  background-color: var(--secondaryBgColor);
+  background-color: var(--mainBgColor);
   height: 95vh;
   text-align: center;
 `;
@@ -14,6 +14,13 @@ export const StyledForm = styled(Form)`
   gap: 20px;
   align-items: flex-start;
   padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+  }
 `;
 
 export const StyledLabel = styled.label`
@@ -36,6 +43,11 @@ export const TitleLabel = styled.p`
   margin: 0;
   margin-bottom: 8px;
   font-weight: 600;
+
+  @media screen and (min-width: 768px) {
+    color: #898f9f;
+    font-weight: 500;
+  }
 `;
 
 export const Decoration = styled.span`

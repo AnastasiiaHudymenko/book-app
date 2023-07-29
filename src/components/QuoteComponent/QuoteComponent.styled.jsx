@@ -10,8 +10,12 @@ export const Quote = styled.p`
     props.isMainPage ? "var(--secondaryTextColor)" : "var(--mainTextColor)"} ;
     
   @media screen and (min-width: 768px) {
-    font-size: ${(props) => (props.isMainPage ? "12px" : "13px")};
+    font-size: ${(props) => (props.isMainPage ? "12px" : "24px")};
+    width: ${(props) => (props.isMainPage ? "" : "526px")};
+    margin: ${(props) => (props.isMainPage ? "" : "auto")}; 
    }
+
+   
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
@@ -36,6 +40,12 @@ export const TitleAuhtor = styled.p`
       width: 200px;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: 24px;
