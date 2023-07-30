@@ -13,6 +13,7 @@ const App = () => {
         <Route index element={<AuthPage />}></Route>
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/library" element={<LibraryPage />} />
       </Route>
     </Routes>
   );

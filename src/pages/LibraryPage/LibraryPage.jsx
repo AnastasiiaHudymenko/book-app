@@ -1,5 +1,12 @@
+import LibraryEmpty from "../../components/LibraryEmpty/LibraryEmpty";
+import { Container } from "./LibraryPage.styled";
+
 const LibraryPage = () => {
-  return <div>Hello Library</div>;
+  return (
+    <Container>
+      <LibraryEmpty />
+    </Container>
+  );
 };
 
 export default LibraryPage;

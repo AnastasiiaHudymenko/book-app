@@ -8,6 +8,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #fff;
+    border-radius: 6px;
   }
 `;
 

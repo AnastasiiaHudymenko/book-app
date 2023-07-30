@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { useMediaQuery } from "react-responsive";
 import WrapFormComponent from "../WrapFormComponent/WrapFormComponent";
 import BtnForm from "../BtnForm/BtnForm";
 import BtnGoogle from "../BtnGoogle/BtnGoogle";
@@ -13,6 +14,7 @@ import {
 import { StyledLink, StyledSpan, Container } from "./RegisterForm.styled";
 
 const RegisterForm = () => {
+  const isTablet = useMediaQuery({ minWidth: 768 });
   return (
     <Container>
       <WrapFormComponent>
@@ -65,7 +67,7 @@ const RegisterForm = () => {
           </StyledForm>
         </Formik>
       </WrapFormComponent>
-      <Information />
+      {isTablet && <Information />}
     </Container>
   );
 };

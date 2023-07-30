@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  background-color: #fff;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    background-color: #fff;
+  }
 `;
 
 export const StyledLink = styled(Link)`

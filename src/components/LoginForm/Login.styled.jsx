@@ -3,7 +3,7 @@ import { Form, Field } from "formik";
 import { Link } from "react-router-dom";
 
 export const Conatiner = styled.div`
-  background-color: var(--mainBgColor);
+  background-color: var(--secondaryBgColor);
   height: 100vh;
   text-align: center;
 
