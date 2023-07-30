@@ -3,6 +3,7 @@ import {
   MdOutlineSubdirectoryArrowRight,
   MdOutlinedFlag,
 } from "react-icons/md";
+import { useMediaQuery } from "react-responsive";
 import {
   WrapContent,
   StepTitle,
@@ -15,6 +16,8 @@ import {
 } from "./LibraryInfoStep.styled";
 
 const LibraryInfoStep = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <div>
       <List>
@@ -44,7 +47,7 @@ const LibraryInfoStep = () => {
             </SubDescStep>
           </WrapSubContent>
         </Item>
-        <Btn type="button">Ok</Btn>
+        {isMobile && <Btn type="button">Ok</Btn>}
       </List>
     </div>
   );
