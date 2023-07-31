@@ -4,6 +4,7 @@ import WrapFormComponent from "../WrapFormComponent/WrapFormComponent";
 import BtnForm from "../BtnForm/BtnForm";
 import BtnGoogle from "../BtnGoogle/BtnGoogle";
 import Information from "../Information/Information";
+
 import {
   StyledForm,
   StyledLabel,
@@ -12,17 +13,29 @@ import {
   Decoration,
 } from "../LoginForm/Login.styled";
 import { StyledLink, StyledSpan, Container } from "./RegisterForm.styled";
+import { useDispatch } from "react-redux";
+import { register, googleAuth } from "../../redux/auth/operations";
 
 const RegisterForm = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values) => {
+    dispatch(register(values));
+  };
+
+  const registerGoogle = () => {
+    dispatch(googleAuth());
+  };
   return (
     <Container>
       <WrapFormComponent>
         <Formik
-          initialValues={{ name: "", email: "", password: "", confirm: "" }}
+          onSubmit={handleSubmit}
+          initialValues={{ name: "", email: "", password: "" }}
         >
           <StyledForm autoComplete="off">
-            <BtnGoogle />
+            <BtnGoogle registerGoogle={registerGoogle} />
             <StyledLabel>
               <TitleLabel>
                 Ім'я <Decoration>*</Decoration>
@@ -53,11 +66,11 @@ const RegisterForm = () => {
               <TitleLabel>
                 Підтвердити пароль <Decoration>*</Decoration>
               </TitleLabel>
-              <StyledField
+              {/* <StyledField
                 placeholder="Підтвердити пароль"
                 type="password"
                 name="confirm"
-              />
+              /> */}
             </StyledLabel>
             <BtnForm type="submit" text="Зареєструватися" />
 

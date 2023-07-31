@@ -1,9 +1,9 @@
 import { FcGoogle } from "react-icons/fc";
 import { BtnGoogleStyled } from "./BtnGoogle.styled";
 
-const BtnGoogle = () => {
+const BtnGoogle = ({ registerGoogle }) => {
   return (
-    <BtnGoogleStyled type="button">
+    <BtnGoogleStyled type="button" onClick={() => registerGoogle()}>
       <FcGoogle size={18} />
       Google
     </BtnGoogleStyled>

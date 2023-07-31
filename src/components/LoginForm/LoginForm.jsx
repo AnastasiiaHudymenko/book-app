@@ -15,14 +15,24 @@ import {
   StyledField,
   StyledLink,
 } from "./Login.styled";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations";
 
 const LoginForm = () => {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values) => {
+    dispatch(logIn(values));
+  };
 
   return (
     <Conatiner>
       <WrapFormComponent>
-        <Formik initialValues={{ email: "", password: "" }}>
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={{ email: "", password: "" }}
+        >
           <StyledForm path={pathname} autoComplete="off">
             <BtnGoogle />
             <StyledLabel>
