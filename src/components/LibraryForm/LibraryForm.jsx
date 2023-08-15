@@ -1,4 +1,7 @@
 import { Formik } from "formik";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBook } from "../../redux/bookApi/operations";
 import BtnAdd from "../BtnAdd/BtnAdd";
 import {
   StyledForm,
@@ -7,10 +10,10 @@ import {
   Label,
   WrapInput,
 } from "./LibraryForm.styled";
-import { useState } from "react";
 
 const LibraryForm = () => {
   const [isFocused, setIsInputFocused] = useState(false);
+  const dispatch = useDispatch();
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -20,14 +23,26 @@ const LibraryForm = () => {
     setIsInputFocused(false);
   };
 
+  const handleSubmit = (values) => {
+    dispatch(addBook(values));
+  };
+
   const bcg = isFocused ? "#fff" : "#f6f7fb";
   return (
-    <Formik initialValues={{ name: "", auhtor: "", year: "", page: "" }}>
+    <Formik
+      initialValues={{ title: "", author: "", publishYear: "", pagesTotal: "" }}
+      onSubmit={handleSubmit}
+    >
       <StyledForm>
         <Label>
           <LabelTitle> Назва книги</LabelTitle>
 
-          <StyledField isFirstInput placeholder="..." type="text" name="name" />
+          <StyledField
+            isFirstInput
+            placeholder="..."
+            type="text"
+            name="title"
+          />
         </Label>
         <WrapInput>
           <Label>
@@ -36,18 +51,18 @@ const LibraryForm = () => {
               isFirstInput
               placeholder="..."
               type="text"
-              name="auhtor"
+              name="author"
             />
           </Label>
           <Label>
             <LabelTitle> Рік випуску</LabelTitle>
 
-            <StyledField placeholder="..." type="text" name="year" />
+            <StyledField placeholder="..." type="text" name="publishYear" />
           </Label>
           <Label>
             <LabelTitle> Кількість сторінок</LabelTitle>
 
-            <StyledField placeholder="..." type="text" name="page" />
+            <StyledField placeholder="..." type="text" name="pagesTotal" />
           </Label>
         </WrapInput>
 

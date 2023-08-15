@@ -25,7 +25,12 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<AuthPage />} />
+        <Route
+          index
+          element={
+            <RestictedRoute redirectTo="/library" component={<AuthPage />} />
+          }
+        />
         <Route
           path="/login"
           element={
