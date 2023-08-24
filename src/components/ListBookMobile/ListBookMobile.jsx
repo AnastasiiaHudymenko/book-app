@@ -24,7 +24,7 @@ const ListBookMobile = ({ books, deleteBookUser }) => {
       <Title>Маю намір прочитати</Title>
       {isTablet && <CaptionListCategory />}
       <List>
-        {books.map((book) => (
+        {books?.map((book) => (
           <Item key={book._id}>
             <WrapIconContent>
               <MdMenuBook size={28} fill="#A6ABB9" />
