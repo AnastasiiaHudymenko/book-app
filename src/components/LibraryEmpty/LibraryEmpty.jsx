@@ -49,7 +49,7 @@ const LibraryEmpty = () => {
       ) : (
         <div>
           <LibraryForm addNewBook={addNewBook} />
-          {books.length !== 0 ? (
+          {books?.length !== 0 ? (
             <ListBookMobile books={books} deleteBookUser={deleteBookUser} />
           ) : (
             isTablet && <LibraryInfoStep />
