@@ -1,5 +1,7 @@
 import { MdMenuBook } from "react-icons/md";
-import { AiOutlinePlus } from "react-icons/ai";
+import { LuDelete } from "react-icons/lu";
+import { useMediaQuery } from "react-responsive";
+import CaptionListCategory from "../CaptionListCategory/CaptionListCategory";
 import {
   Title,
   Item,
@@ -9,57 +11,48 @@ import {
   WrapOthetContent,
   Desc,
   SubDesc,
+  BtnAdd,
+  WrapOthetContentOne,
+  BtnDelete,
 } from "./ListBookMobile.styled";
 
-const ListBookMobile = () => {
+const ListBookMobile = ({ books, deleteBookUser }) => {
+  const isTablet = useMediaQuery({ minWidth: 768 });
+
   return (
-    <div>
+    <div style={{ marginTop: "60px" }}>
       <Title>Маю намір прочитати</Title>
+      {isTablet && <CaptionListCategory />}
       <List>
-        <Item>
-          <WrapIconContent>
-            <MdMenuBook size={28} fill="#A6ABB9" />
-            <TitleList>
-              Scrum. Революционный метод управлениями проектами.
-            </TitleList>
-          </WrapIconContent>
-          <WrapOthetContent>
-            <Desc>Автор:</Desc>
-            <SubDesc>Джефф Сазерленд</SubDesc>
-          </WrapOthetContent>
-          <WrapOthetContent>
-            <Desc>Рік:</Desc>
-            <SubDesc>2014</SubDesc>
-          </WrapOthetContent>
-          <WrapOthetContent>
-            <Desc>Стор.:</Desc>
-            <SubDesc>25</SubDesc>
-          </WrapOthetContent>
-        </Item>
-        <Item>
-          <WrapIconContent>
-            <MdMenuBook size={28} fill="#A6ABB9" />
-            <TitleList>
-              Scrum. Революционный метод управлениями проектами.
-            </TitleList>
-          </WrapIconContent>
-          <WrapOthetContent>
-            <Desc>Автор:</Desc>
-            <SubDesc>Джефф Сазерленд</SubDesc>
-          </WrapOthetContent>
-          <WrapOthetContent>
-            <Desc>Рік:</Desc>
-            <SubDesc>2014</SubDesc>
-          </WrapOthetContent>
-          <WrapOthetContent>
-            <Desc>Стор.:</Desc>
-            <SubDesc>25</SubDesc>
-          </WrapOthetContent>
-        </Item>
+        {books.map((book) => (
+          <Item key={book._id}>
+            <WrapIconContent>
+              <MdMenuBook size={28} fill="#A6ABB9" />
+              <TitleList>{book.title}</TitleList>
+            </WrapIconContent>
+            <WrapOthetContentOne>
+              {!isTablet && <Desc>Автор:</Desc>}
+              <SubDesc>{book.author}</SubDesc>
+            </WrapOthetContentOne>
+            <WrapOthetContent>
+              {!isTablet && <Desc>Рік:</Desc>}
+              <SubDesc>{book.publishYear}</SubDesc>
+            </WrapOthetContent>
+            <WrapOthetContent>
+              {!isTablet && <Desc>Стор.:</Desc>}
+              <SubDesc>{book.pagesTotal}</SubDesc>
+            </WrapOthetContent>
+            <BtnDelete
+              onClick={() => deleteBookUser(book._id)}
+              aria-label="delete book"
+              type="button"
+            >
+              <LuDelete size={20} fill="white" />
+            </BtnDelete>
+          </Item>
+        ))}
       </List>
-      <button type="button">
-        <AiOutlinePlus size={24} fill="#fff" />
-      </button>
+      <BtnAdd type="button">Мої тренування</BtnAdd>
     </div>
   );
 };

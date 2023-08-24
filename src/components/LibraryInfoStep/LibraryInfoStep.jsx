@@ -15,7 +15,7 @@ import {
   Item,
 } from "./LibraryInfoStep.styled";
 
-const LibraryInfoStep = () => {
+const LibraryInfoStep = ({ clickBack }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
@@ -47,7 +47,11 @@ const LibraryInfoStep = () => {
             </SubDescStep>
           </WrapSubContent>
         </Item>
-        {isMobile && <Btn type="button">Ok</Btn>}
+        {isMobile && (
+          <Btn onClick={clickBack} type="button">
+            Ok
+          </Btn>
+        )}
       </List>
     </div>
   );

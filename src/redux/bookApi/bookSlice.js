@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addBook } from "./operations";
+import { getUserBook } from "./operations";
 
 const initialState = {
-  book: [],
+  books: null,
 };
 
 const bookSlice = createSlice({
@@ -10,8 +10,9 @@ const bookSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(addBook.fulfilled, (state, action) => {
-      state.book = action.payload;
+    builder.addCase(getUserBook.fulfilled, (state, action) => {
+      console.log("action", action);
+      state.books = action.payload;
     });
   },
 });

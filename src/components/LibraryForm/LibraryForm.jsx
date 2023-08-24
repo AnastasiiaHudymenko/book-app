@@ -1,7 +1,5 @@
 import { Formik } from "formik";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addBook } from "../../redux/bookApi/operations";
 import BtnAdd from "../BtnAdd/BtnAdd";
 import {
   StyledForm,
@@ -11,9 +9,8 @@ import {
   WrapInput,
 } from "./LibraryForm.styled";
 
-const LibraryForm = () => {
+const LibraryForm = ({ addNewBook }) => {
   const [isFocused, setIsInputFocused] = useState(false);
-  const dispatch = useDispatch();
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -23,8 +20,10 @@ const LibraryForm = () => {
     setIsInputFocused(false);
   };
 
-  const handleSubmit = (values) => {
-    dispatch(addBook(values));
+  const handleSubmit = (values, action) => {
+    addNewBook(values);
+
+    action.resetForm();
   };
 
   const bcg = isFocused ? "#fff" : "#f6f7fb";
