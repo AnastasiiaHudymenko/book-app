@@ -6,25 +6,44 @@ import Schedule from "../../components/Schedule/Schedule";
 import BtnAdd from "../../components/BtnAdd/BtnAdd";
 import { Container } from "../../pages/LibraryPage/LibraryPage.styled";
 import { useState } from "react";
+import BtnBack from "../../components/BtnBack/BtnBack";
+import StarTraiding from "../../components/StartTraiging/StarTraiding";
 
 const TraindingPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [openAddBook, setOpenAddBook] = useState(false);
+
+  const openForm = () => {
+    setOpenAddBook(!openAddBook);
+  };
+
+  const onClickBtn = () => {
+    setOpenAddBook(!openAddBook);
+  };
   if (isMobile) {
     return (
       <Container>
-        <MyGoal />
-        <ListBookWorkout />
-        <Schedule />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <BtnAdd type="button" />
-        </div>
+        {!openAddBook ? (
+          <>
+            <MyGoal />
+            <ListBookWorkout />
+            <Schedule />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <BtnAdd openForm={openForm} type="button" />
+            </div>
+          </>
+        ) : (
+          <>
+            <BtnBack onClickBtn={onClickBtn} />
+            <StarTraiding />
+          </>
+        )}
       </Container>
     );
   }
