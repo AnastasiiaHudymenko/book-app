@@ -15,6 +15,7 @@ import {
   WrapOthetContentOne,
   BtnDelete,
 } from "./ListBookMobile.styled";
+import { Link } from "react-router-dom";
 
 const ListBookMobile = ({ books, deleteBookUser }) => {
   const isTablet = useMediaQuery({ minWidth: 768 });
@@ -47,12 +48,14 @@ const ListBookMobile = ({ books, deleteBookUser }) => {
               aria-label="delete book"
               type="button"
             >
-              <LuDelete size={20} fill="white" />
+              <LuDelete size={20} fill="rgb(166, 171, 185)" />
             </BtnDelete>
           </Item>
         ))}
       </List>
-      <BtnAdd type="button">Мої тренування</BtnAdd>
+      <Link to={"/training"}>
+        <BtnAdd type="button">Мої тренування</BtnAdd>
+      </Link>
     </div>
   );
 };

@@ -52,6 +52,12 @@ const App = () => {
             <PrivateRoute redirectTo="/login" component={<LibraryPage />} />
           }
         />
+        <Route
+          path="/training"
+          element={
+            <PrivateRoute redirectTo="/login" component={<TraindingPage />} />
+          }
+        />
       </Route>
     </Routes>
   );
