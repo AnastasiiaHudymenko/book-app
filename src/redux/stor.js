@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
 import { bookReducer } from "./bookApi/bookSlice";
+import { planningReducer } from "./planningApi/planningSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -23,7 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     userBook: bookReducer,
-    // tasks: tasksReducer,
+    userPlanning: planningReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -7,10 +7,17 @@ import { Container } from "../../pages/LibraryPage/LibraryPage.styled";
 import { useState } from "react";
 import BtnBack from "../../components/BtnBack/BtnBack";
 import StarTraiding from "../../components/StartTraiging/StarTraiding";
+import ListBookMobile from "../../components/ListBookMobile/ListBookMobile";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteBook, getUserBook } from "../../redux/bookApi/operations";
 
 const TraindingPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [openAddBook, setOpenAddBook] = useState(false);
+  const currentlyBooks = useSelector(
+    (state) => state.userBook?.books?.currentlyReading
+  );
+  const dispatch = useDispatch();
 
   const openForm = () => {
     setOpenAddBook(!openAddBook);
@@ -19,13 +26,27 @@ const TraindingPage = () => {
   const onClickBtn = () => {
     setOpenAddBook(!openAddBook);
   };
+
+  const deleteBookUser = async (bookId) => {
+    console.log(bookId);
+    await dispatch(deleteBook(bookId));
+    await dispatch(getUserBook());
+  };
   if (isMobile) {
     return (
       <Container>
         {!openAddBook ? (
           <>
             <MyGoal />
-            <ListBookWorkout />
+            {currentlyBooks?.length !== 0 ? (
+              <ListBookMobile
+                deleteBookUser={deleteBookUser}
+                books={currentlyBooks}
+              />
+            ) : (
+              <ListBookWorkout />
+            )}
+
             <Schedule />
             <div
               style={{

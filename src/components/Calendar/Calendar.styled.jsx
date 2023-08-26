@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Form } from "formik";
 
-export const ContainerMainForm = styled(Form)`
+export const ContainerMainForm = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
