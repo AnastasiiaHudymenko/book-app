@@ -1,6 +1,5 @@
 import { useMediaQuery } from "react-responsive";
 import MyGoal from "../../components/MyGoal/MyGoal";
-import MyWorkout from "../../components/MyWorkOut/MyWorkout";
 import ListBookWorkout from "../../components/ListBookWorkout/ListBookWorkout";
 import Schedule from "../../components/Schedule/Schedule";
 import BtnAdd from "../../components/BtnAdd/BtnAdd";
